@@ -1,5 +1,5 @@
 #pragma once
-#include "E:\xiaoshiquan_work\git_lyzs\CTAOnCTP\CTAOnCTP\CTAOnCTP\CTP\include\ThostFtdcMdApi.h"
+#include "CTP\include\ThostFtdcMdApi.h"
 class CSimpleMdSpi :
 	public CThostFtdcMdSpi
 {

@@ -43,6 +43,9 @@ int CSimpleMdSpi::UserLogin(char *pBrokerID, char *pInverstID, char *pPassWord)
 void CSimpleMdSpi::OnFrontConnected()
 {
 	cout << "=====建立网络连接成功=====" << endl;
+
+	//用户登录
+	UserLogin(gBrokerID, gInvesterID, gInvesterPassword);
 }
 
 // 断开连接通知
