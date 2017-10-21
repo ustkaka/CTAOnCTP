@@ -2,6 +2,8 @@
 #include "SimpleTraderSpi.h"
 #include <iostream>
 #include <thread>
+#include <cstring>
+
 
 
 // ---- 全局参数声明 ---- //
@@ -9,6 +11,7 @@ extern TThostFtdcBrokerIDType gBrokerID;                      // 模拟经纪商代码
 extern TThostFtdcInvestorIDType gInvesterID;                  // 投资者账户名
 extern TThostFtdcPasswordType gInvesterPassword;              // 投资者密码
 
+extern char gTradeFrontAddr[];                                // 模拟交易前置地址
 extern TThostFtdcInstrumentIDType g_pTradeInstrumentID;       // 所交易的合约代码
 extern TThostFtdcDirectionType gTradeDirection;               // 买卖方向
 extern TThostFtdcPriceType gLimitPrice;                       // 交易价格
@@ -155,10 +158,11 @@ void CSimpleTraderSpi::OnRspQryInvestorPosition(
 		if (pInvestorPosition)
 		{
 			std::cout << "合约代码： " << pInvestorPosition->InstrumentID << std::endl;
-			std::cout << "持仓金额： " << pInvestorPosition->OpenAmount << std::endl;
-			std::cout << "持仓仓量： " << pInvestorPosition->OpenVolume << std::endl;
+			std::cout << "Total持仓量： " << pInvestorPosition->Position << std::endl;
 			std::cout << "开仓方向： " << pInvestorPosition->PosiDirection << std::endl;
 			std::cout << "占用保证金：" << pInvestorPosition->UseMargin << std::endl;
+			std::cout << "TodayPosition:" << pInvestorPosition->TodayPosition << std::endl;
+			std::cout << "YdPosition:" << pInvestorPosition->YdPosition << std::endl;
 		}
 		else
 			std::cout << "----->该合约未持仓" << std::endl;

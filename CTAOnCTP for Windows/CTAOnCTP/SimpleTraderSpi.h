@@ -1,13 +1,13 @@
 #pragma once
 #include "CTP\include\ThostFtdcTraderApi.h"
-class CSimpleTraderSpi :
-	public CThostFtdcTraderSpi
+
+class CSimpleTraderSpi :public CThostFtdcTraderSpi
 {
 private:
 	CThostFtdcTraderApi *m_pTradeUserApi;                  // 交易指针
 public:
-	CSimpleTraderSpi(CThostFtdcTraderApi *pTradeUserApi):m_pTradeUserApi(pTradeUserApi){};
-	~CSimpleTraderSpi();
+	CSimpleTraderSpi(CThostFtdcTraderApi *pTradeUserApi) :m_pTradeUserApi(pTradeUserApi) {};
+	virtual ~CSimpleTraderSpi();
 
 	// ---- ctp_api部分回调接口 ---- //
 public:
@@ -69,6 +69,7 @@ private:
 	void reqQueryTradingAccount(); // 请求查询资金帐户
 	void reqQueryInvestorPosition(); // 请求查询投资者持仓
 	void reqOrderInsert(); // 请求报单录入
+
 
 	void reqOrderAction(CThostFtdcOrderField *pOrder); // 请求报单操作
 	bool isErrorRspInfo(CThostFtdcRspInfoField *pRspInfo); // 是否收到错误信息
