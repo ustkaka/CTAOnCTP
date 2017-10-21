@@ -163,12 +163,6 @@ void CSimpleTraderSpi::OnRspQryInvestorPosition(
 		else
 			std::cout << "----->该合约未持仓" << std::endl;
 
-		// 报单录入请求（这里是一部接口，此处是按顺序执行）
-		/*if (loginFlag)
-		reqOrderInsert();*/
-		//if (loginFlag)
-		//	reqOrderInsertWithParams(g_pTradeInstrumentID, gLimitPrice, 1, gTradeDirection); // 自定义一笔交易
-
 	}
 }
 
