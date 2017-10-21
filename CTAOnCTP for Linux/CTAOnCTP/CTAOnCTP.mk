@@ -12,8 +12,8 @@ OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=
-Date                   :=14/10/17
+User                   :=xiaoshiquan
+Date                   :=21/10/17
 CodeLitePath           :="/home/xiaoshiquan/.codelite"
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleMdSpi.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleMdSpi.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix) 
 
 
 
@@ -106,6 +106,14 @@ $(IntermediateDirectory)/CSimpleMdSpi.cpp$(DependSuffix): CSimpleMdSpi.cpp
 
 $(IntermediateDirectory)/CSimpleMdSpi.cpp$(PreprocessSuffix): CSimpleMdSpi.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CSimpleMdSpi.cpp$(PreprocessSuffix) "CSimpleMdSpi.cpp"
+
+$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix): CSimpleTraderSpi.cpp $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/xiaoshiquan/Workspaces/CTAOnCTP/CTAOnCTP/CSimpleTraderSpi.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(DependSuffix): CSimpleTraderSpi.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(DependSuffix) -MM "CSimpleTraderSpi.cpp"
+
+$(IntermediateDirectory)/CSimpleTraderSpi.cpp$(PreprocessSuffix): CSimpleTraderSpi.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(PreprocessSuffix) "CSimpleTraderSpi.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

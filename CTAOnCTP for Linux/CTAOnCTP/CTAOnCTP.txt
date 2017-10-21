@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/CSimpleMdSpi.cpp.o
+./Debug/main.cpp.o ./Debug/CSimpleMdSpi.cpp.o ./Debug/CSimpleTraderSpi.cpp.o

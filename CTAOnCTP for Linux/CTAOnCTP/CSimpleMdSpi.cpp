@@ -9,7 +9,7 @@ extern TThostFtdcInvestorIDType gInvesterID;     // 投资者账户名
 extern TThostFtdcPasswordType gInvesterPassword; // 投资者密码
 
 //全局变量
-char *g_pInstrumentID[] = { "IF1711", "rb1801" };				   // 行情合约代码列表
+char *g_pInstrumentID[] = { "IF1803", "rb1801" };				   // 行情合约代码列表
 int g_nInstrumentNum = 2;                                          // 行情合约订阅数量
 
 

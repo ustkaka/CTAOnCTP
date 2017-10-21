@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="CTAOnCTP" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -13,15 +16,13 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
     <File Name="CSimpleMdSpi.cpp"/>
+    <File Name="CSimpleTraderSpi.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <VirtualDirectory Name="CTP">
@@ -33,6 +34,7 @@
       <File Name="include/CTP/ThostFtdcUserApiStruct.h"/>
     </VirtualDirectory>
     <File Name="CSimpleMdSpi.h"/>
+    <File Name="CSimpleTraderSpi.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
