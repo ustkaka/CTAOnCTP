@@ -3,13 +3,16 @@
 #include <string.h>
 #include <iostream>
 #include <fstream>
+#include <functional>
 
 using namespace std;
+using Tick = CThostFtdcDepthMarketDataField;
 
 //全局变量声明
 extern TThostFtdcBrokerIDType gBrokerID;         // 模拟经纪商代码
 extern TThostFtdcInvestorIDType gInvesterID;     // 投资者账户名
 extern TThostFtdcPasswordType gInvesterPassword; // 投资者密码
+extern std::function<void(Tick *)> g_pfunMDEventHandlerOnTick;
 
 //全局变量
 char *g_pInstrumentID[] = { "IF1711", "rb1801" };				   // 行情合约代码列表
@@ -200,6 +203,16 @@ void CSimpleMdSpi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMa
 	cout << "合约在交易所的代码： " << pDepthMarketData->ExchangeInstID << endl;
 	cout << "最新价： " << pDepthMarketData->LastPrice << endl;
 	cout << "数量： " << pDepthMarketData->Volume << endl;
+	
+	if (g_pfunMDEventHandlerOnTick)
+	{
+		if (pDepthMarketData)
+		{
+			g_pfunMDEventHandlerOnTick(pDepthMarketData);
+		}
+
+	}
+
 
 
 	// 取消订阅行情

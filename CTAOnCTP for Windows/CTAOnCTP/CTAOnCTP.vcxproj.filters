@@ -48,6 +48,9 @@
     <ClInclude Include="SimpleTraderSpi.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleStrategy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +63,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SimpleTraderSpi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleStrategy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -60,7 +60,8 @@ public:
 		TThostFtdcInstrumentIDType instrumentID,
 		TThostFtdcPriceType price,
 		TThostFtdcVolumeType volume,
-		TThostFtdcDirectionType direction); // 个性化报单录入，外部调用
+		TThostFtdcDirectionType direction,
+		char open_close); // 个性化报单录入，外部调用
 private:
 	void reqUserLogin(); // 登录请求
 	void reqUserLogout(); // 登出请求
@@ -69,7 +70,6 @@ private:
 	void reqQueryTradingAccount(); // 请求查询资金帐户
 	void reqQueryInvestorPosition(); // 请求查询投资者持仓
 	void reqOrderInsert(); // 请求报单录入
-
 
 	void reqOrderAction(CThostFtdcOrderField *pOrder); // 请求报单操作
 	bool isErrorRspInfo(CThostFtdcRspInfoField *pRspInfo); // 是否收到错误信息
