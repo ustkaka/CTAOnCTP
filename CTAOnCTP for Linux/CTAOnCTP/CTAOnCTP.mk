@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=xiaoshiquan
-Date                   :=21/10/17
+Date                   :=28/10/17
 CodeLitePath           :="/home/xiaoshiquan/.codelite"
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleMdSpi.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleMdSpi.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(ObjectSuffix) $(IntermediateDirectory)/CSimpleStrategy.cpp$(ObjectSuffix) 
 
 
 
@@ -114,6 +114,14 @@ $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(DependSuffix): CSimpleTraderSpi.c
 
 $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(PreprocessSuffix): CSimpleTraderSpi.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CSimpleTraderSpi.cpp$(PreprocessSuffix) "CSimpleTraderSpi.cpp"
+
+$(IntermediateDirectory)/CSimpleStrategy.cpp$(ObjectSuffix): CSimpleStrategy.cpp $(IntermediateDirectory)/CSimpleStrategy.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/xiaoshiquan/Workspaces/CTAOnCTP/CTAOnCTP/CSimpleStrategy.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/CSimpleStrategy.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/CSimpleStrategy.cpp$(DependSuffix): CSimpleStrategy.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/CSimpleStrategy.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/CSimpleStrategy.cpp$(DependSuffix) -MM "CSimpleStrategy.cpp"
+
+$(IntermediateDirectory)/CSimpleStrategy.cpp$(PreprocessSuffix): CSimpleStrategy.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CSimpleStrategy.cpp$(PreprocessSuffix) "CSimpleStrategy.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

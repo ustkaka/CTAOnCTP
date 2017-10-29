@@ -23,6 +23,7 @@
     <File Name="main.cpp"/>
     <File Name="CSimpleMdSpi.cpp"/>
     <File Name="CSimpleTraderSpi.cpp"/>
+    <File Name="CSimpleStrategy.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <VirtualDirectory Name="CTP">
@@ -35,6 +36,7 @@
     </VirtualDirectory>
     <File Name="CSimpleMdSpi.h"/>
     <File Name="CSimpleTraderSpi.h"/>
+    <File Name="CSimpleStrategy.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

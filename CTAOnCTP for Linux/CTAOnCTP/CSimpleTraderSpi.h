@@ -60,7 +60,8 @@ public:
 		TThostFtdcInstrumentIDType instrumentID,
 		TThostFtdcPriceType price,
 		TThostFtdcVolumeType volume,
-		TThostFtdcDirectionType direction); // 个性化报单录入，外部调用
+		TThostFtdcDirectionType direction,
+        char open_close); // 个性化报单录入，外部调用
 private:
 	void reqUserLogin(); // 登录请求
 	void reqUserLogout(); // 登出请求

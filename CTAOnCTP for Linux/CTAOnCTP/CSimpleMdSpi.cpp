@@ -1,12 +1,16 @@
 #include "CSimpleMdSpi.h"
 #include  <iostream>
 #include  <string.h>
+#include  <functional>
 
 
 //全局变量声明
 extern TThostFtdcBrokerIDType gBrokerID;         // 模拟经纪商代码
 extern TThostFtdcInvestorIDType gInvesterID;     // 投资者账户名
 extern TThostFtdcPasswordType gInvesterPassword; // 投资者密码
+
+using Tick = CThostFtdcDepthMarketDataField;
+extern std::function<void(Tick *)> g_pfunMDEventHandlerOnTick; 
 
 //全局变量
 char *g_pInstrumentID[] = { "IF1803", "rb1801" };				   // 行情合约代码列表
@@ -201,7 +205,15 @@ void CSimpleMdSpi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMa
 	std::cout << "数量： " << pDepthMarketData->Volume << std::endl;
     std::cout << "ActionDay: " << pDepthMarketData->ActionDay << std::endl;
     std::cout << "UpdateTime: " << pDepthMarketData->UpdateTime << std::endl;
-
+    
+    //Market Data CallBack OnTick
+    if(g_pfunMDEventHandlerOnTick)
+    {
+        if(pDepthMarketData)
+        {
+            g_pfunMDEventHandlerOnTick(pDepthMarketData);
+        }
+    }
 
 	// 取消订阅行情
 	//int rt = m_pMdUserApi->UnSubscribeMarketData(g_pInstrumentID, g_nInstrumentNum);
@@ -221,3 +233,5 @@ void CSimpleMdSpi::OnRtnForQuoteRsp(CThostFtdcForQuoteRspField *pForQuoteRsp)
 	std::cout << "合约代码： " << pForQuoteRsp->InstrumentID << std::endl;
 	std::cout << "询价编号： " << pForQuoteRsp->ForQuoteSysID << std::endl;
 }
+
+class CThostFtdcDepthMarketDataField;

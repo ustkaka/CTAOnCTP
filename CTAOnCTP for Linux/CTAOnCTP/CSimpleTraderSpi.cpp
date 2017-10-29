@@ -165,7 +165,6 @@ void CSimpleTraderSpi::OnRspQryInvestorPosition(
 		}
 		else
 			std::cout << "----->该合约未持仓" << std::endl;
-
 	}
 }
 
@@ -377,7 +376,8 @@ void CSimpleTraderSpi::reqOrderInsert(
 	TThostFtdcInstrumentIDType instrumentID,
 	TThostFtdcPriceType price,
 	TThostFtdcVolumeType volume,
-	TThostFtdcDirectionType direction)
+	TThostFtdcDirectionType direction,
+    char open_close)
 {
 	CThostFtdcInputOrderField orderInsertReq;
 	memset(&orderInsertReq, 0, sizeof(orderInsertReq));
@@ -394,7 +394,7 @@ void CSimpleTraderSpi::reqOrderInsert(
 	///买卖方向: 
 	orderInsertReq.Direction = direction;
 	///组合开平标志: 开仓
-	orderInsertReq.CombOffsetFlag[0] = THOST_FTDC_OF_Open;
+	orderInsertReq.CombOffsetFlag[0] = open_close;
 	///组合投机套保标志
 	orderInsertReq.CombHedgeFlag[0] = THOST_FTDC_HF_Speculation;
 	///价格
