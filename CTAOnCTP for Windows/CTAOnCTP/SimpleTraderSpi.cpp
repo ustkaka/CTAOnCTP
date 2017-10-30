@@ -163,7 +163,6 @@ void CSimpleTraderSpi::OnRspQryInvestorPosition(
 			std::cout << "占用保证金：" << pInvestorPosition->UseMargin << std::endl;
 			std::cout << "TodayPosition:" << pInvestorPosition->TodayPosition << std::endl;
 			std::cout << "YdPosition:" << pInvestorPosition->YdPosition << std::endl;
-			reqOrderInsert();
 		}
 		else
 			std::cout << "----->该合约未持仓" << std::endl;

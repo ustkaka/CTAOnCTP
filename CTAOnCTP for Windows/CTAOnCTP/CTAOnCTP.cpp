@@ -52,7 +52,7 @@ int main()
 	api->Init();
 	//api->Join();
 
-	CSimpleStrategy simpleStrategy(&simpleTraderSpi,g_pTradeInstrumentID,0.01);
+	CSimpleStrategy simpleStrategy(&simpleTraderSpi,g_pTradeInstrumentID,0.0004);
 
 	using namespace std::placeholders;
 	g_pfunMDEventHandlerOnTick = std::bind(std::mem_fn(&CSimpleStrategy::OnTick), &simpleStrategy, _1); //bind event callback function

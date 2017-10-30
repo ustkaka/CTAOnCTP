@@ -68,7 +68,7 @@ void CSimpleStrategy::OnTick(Tick *pTick)
 			
 			m_nPositionDriection = LONG_POSITION;
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-										m_CurrentTick.LastPrice, 
+										m_CurrentTick.AskPrice1, 
 										1, 
 										THOST_FTDC_DEN_Buy, //买
 										THOST_FTDC_OF_Open);//开
@@ -81,7 +81,7 @@ void CSimpleStrategy::OnTick(Tick *pTick)
 
 			m_nPositionDriection = SHORT_POSITION;
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-										m_CurrentTick.LastPrice,
+										m_CurrentTick.BidPrice1,
 										1,
 										THOST_FTDC_DEN_Sell,//卖
 										THOST_FTDC_OF_Open);//开
@@ -99,13 +99,13 @@ void CSimpleStrategy::OnTick(Tick *pTick)
 			m_nPositionDriection = SHORT_POSITION;
 			//平多仓
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-										m_CurrentTick.LastPrice,
+										m_CurrentTick.BidPrice1,
 										1,
 										THOST_FTDC_DEN_Sell,//卖
 										THOST_FTDC_OF_Close);//平
 			//开空仓
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-										m_CurrentTick.LastPrice,
+										m_CurrentTick.BidPrice1,
 										1,
 										THOST_FTDC_DEN_Sell,//卖
 										THOST_FTDC_OF_Open);//开
@@ -123,13 +123,13 @@ void CSimpleStrategy::OnTick(Tick *pTick)
 			m_nPositionDriection = LONG_POSITION;
 			//平空仓
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-				m_CurrentTick.LastPrice,
+				m_CurrentTick.AskPrice1,
 				1,
 				THOST_FTDC_D_Buy,//买
 				THOST_FTDC_OF_Close);//平
 			//开多仓
 			m_pTraderSpi->reqOrderInsert((char *)m_strTradeInstrument.c_str(),
-				m_CurrentTick.LastPrice,
+				m_CurrentTick.AskPrice1,
 				1,
 				THOST_FTDC_D_Buy,//买
 				THOST_FTDC_OF_Open);//开

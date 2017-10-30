@@ -15,8 +15,8 @@ extern TThostFtdcPasswordType gInvesterPassword; // 投资者密码
 extern std::function<void(Tick *)> g_pfunMDEventHandlerOnTick;
 
 //全局变量
-char *g_pInstrumentID[] = { "IF1711", "rb1801" };				   // 行情合约代码列表
-int g_nInstrumentNum = 2;                                          // 行情合约订阅数量
+char *g_pInstrumentID[] = {"rb1801" };				   // 行情合约代码列表
+int g_nInstrumentNum = 1;                                          // 行情合约订阅数量
 
 
 CSimpleMdSpi::~CSimpleMdSpi()
