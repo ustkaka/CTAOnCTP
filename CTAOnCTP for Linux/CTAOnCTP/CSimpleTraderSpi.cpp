@@ -19,8 +19,8 @@ extern TThostFtdcPriceType gLimitPrice;                       // 交易价格
 TThostFtdcFrontIDType	trade_front_id;	//前置编号
 TThostFtdcSessionIDType	session_id;	//会话编号
 TThostFtdcOrderRefType	order_ref;	//报单引用
-time_t lOrderTime;
-time_t lOrderOkTime;
+
+
 
 CSimpleTraderSpi::~CSimpleTraderSpi()
 {

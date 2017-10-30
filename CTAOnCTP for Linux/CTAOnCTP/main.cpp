@@ -13,8 +13,7 @@ TThostFtdcBrokerIDType gBrokerID = "9999";                         // 模拟经�
 TThostFtdcInvestorIDType gInvesterID = "044390";                         // 投资者账户名
 TThostFtdcPasswordType gInvesterPassword = "123456";                     // 投资者密码
 
-//104494
-//jiaru753951
+
 
 // 交易参数
 TThostFtdcInstrumentIDType g_pTradeInstrumentID = "rb1801";        // 所交易的合约代码

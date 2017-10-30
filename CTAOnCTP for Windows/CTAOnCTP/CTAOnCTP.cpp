@@ -43,14 +43,14 @@ int main()
 	//交易参数
 	char strTradeFrontAddr[] = "tcp://180.168.146.187:10001";            // 模拟交易前置地址
 
-	CThostFtdcTraderApi *api = CThostFtdcTraderApi::CreateFtdcTraderApi();
-	CSimpleTraderSpi simpleTraderSpi(api);
-	api->RegisterSpi(&simpleTraderSpi);
-	api->RegisterFront(strTradeFrontAddr);
-	api->SubscribePrivateTopic(THOST_TERT_QUICK);
-	api->SubscribePublicTopic(THOST_TERT_QUICK);
-	api->Init();
-	//api->Join();
+	CThostFtdcTraderApi *pTradeUserApi = CThostFtdcTraderApi::CreateFtdcTraderApi();
+	CSimpleTraderSpi simpleTraderSpi(pTradeUserApi);
+	pTradeUserApi->RegisterSpi(&simpleTraderSpi);
+	pTradeUserApi->RegisterFront(strTradeFrontAddr);
+	pTradeUserApi->SubscribePrivateTopic(THOST_TERT_QUICK);
+	pTradeUserApi->SubscribePublicTopic(THOST_TERT_QUICK);
+	pTradeUserApi->Init();
+	//pTradeUserApi->Join();
 
 	CSimpleStrategy simpleStrategy(&simpleTraderSpi,g_pTradeInstrumentID,0.0004);
 
@@ -66,6 +66,21 @@ int main()
 	pMdUserApi->RegisterFront(gMdFrontAddr);
 	pMdUserApi->Init();
 	pMdUserApi->Join();
+
+	//释放资源
+	if (pTradeUserApi)
+	{
+		pTradeUserApi->RegisterSpi(nullptr);
+		pTradeUserApi->Release();
+		pTradeUserApi = nullptr;
+	}
+
+	if (pMdUserApi)
+	{
+		pMdUserApi->RegisterSpi(nullptr);
+		pMdUserApi->Release();
+		pMdUserApi = nullptr;
+	}
 
 
     return 0;
